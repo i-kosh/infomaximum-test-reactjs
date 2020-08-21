@@ -3,7 +3,7 @@ import classNames from "classnames";
 import "./style.scss";
 
 export interface Props {
-  err?: boolean;
+  err?: boolean | string;
   disabled?: boolean;
 }
 
@@ -25,7 +25,7 @@ export default class Input extends Component<Props, State> {
   render() {
     const rootClasses = classNames({
       input: true,
-      "input--error": this.props.err,
+      "input--error": !!this.props.err,
     });
 
     return (
