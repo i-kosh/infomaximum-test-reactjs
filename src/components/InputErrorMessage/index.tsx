@@ -7,7 +7,7 @@ interface Props {
   disabled?: boolean;
 }
 
-export default class index extends Component<Props> {
+export default class InputErrorMessage extends Component<Props> {
   render() {
     return (
       <div className="input-error">
