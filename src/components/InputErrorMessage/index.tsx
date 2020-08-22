@@ -1,22 +1,18 @@
-import React, { Component } from "react";
-import Import from "../Input";
+import React, { FunctionComponent } from "react";
+import Input, { Props as InputProps } from "../Input";
 import "./style.scss";
 
-interface Props {
-  error?: boolean | string;
-  disabled?: boolean;
-}
+export interface Props extends InputProps {}
 
-export default class InputErrorMessage extends Component<Props> {
-  render() {
-    return (
-      <div className="input-error">
-        <Import err={!!this.props.error} disabled={this.props.disabled} />
+const InputErrorMessage: FunctionComponent<Props> = (props) => {
+  return (
+    <div className="input-error">
+      <Input {...props} />
+      {typeof props.err === "string" && (
+        <p className="input-error__msg">{props.err}</p>
+      )}
+    </div>
+  );
+};
 
-        {typeof this.props.error === "string" && (
-          <p className="input-error__msg">{this.props.error}</p>
-        )}
-      </div>
-    );
-  }
-}
+export default InputErrorMessage;
