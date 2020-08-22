@@ -32,6 +32,15 @@
   }
 }
 
+.input__append {
+  position: absolute;
+  width: 36px;
+  height: 100%;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+}
+
 .input--error {
   border-color: #ee4141;
 
@@ -40,4 +49,13 @@
   &:disabled {
     border-color: #ee4141;
   }
+}
+
+.input--append {
+  padding-right: 36px;
+}
+
+.input-wrap {
+  display: inline-block;
+  position: relative;
 }

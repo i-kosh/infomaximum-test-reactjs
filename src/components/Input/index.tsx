@@ -2,39 +2,31 @@ import React, { Component } from "react";
 import classNames from "classnames";
 import "./style.scss";
 
-export interface Props {
+export interface Props extends React.InputHTMLAttributes<HTMLInputElement> {
   err?: boolean | string;
-  disabled?: boolean;
+  append?: JSX.Element;
 }
 
-export interface State {
-  value: any;
-}
-
-export default class Input extends Component<Props, State> {
-  state: State = {
-    value: undefined,
-  };
-
-  handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
-    this.setState({
-      value: e.target.value,
-    });
-  }
-
+export default class Input extends Component<Props> {
   render() {
+    const { err, append, ...otherProps } = this.props;
+
     const rootClasses = classNames({
+      "input-wrap": true,
+    });
+
+    const inputClasses = classNames({
       input: true,
-      "input--error": !!this.props.err,
+      "input--error": !!err,
+      "input--append": !!append,
     });
 
     return (
-      <input
-        className={rootClasses}
-        disabled={this.props.disabled}
-        value={this.state.value}
-        onChange={this.handleChange.bind(this)}
-      />
+      <div className={rootClasses}>
+        <input className={inputClasses} {...otherProps} />
+
+        {!!append && <div className="input__append">{append}</div>}
+      </div>
     );
   }
 }
