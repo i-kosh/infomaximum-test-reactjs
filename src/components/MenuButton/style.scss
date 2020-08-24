@@ -1,0 +1,22 @@
+.menu-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+
+.menu-btn__icon {
+  width: 16px;
+  height: 16px;
+  margin-right: 16px;
+}
+
+.menu-btn__text {
+  font-weight: bold;
+  font-size: 14px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: flex-start;
+}
