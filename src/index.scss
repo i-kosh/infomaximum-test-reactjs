@@ -1,3 +1,7 @@
+html {
+  min-width: 1200px;
+}
+
 body {
   margin: 0;
   font-family: "Open Sans", sans-serif;
@@ -26,6 +30,15 @@ ul {
 
 img {
   height: auto;
+  max-height: 100%;
   -webkit-user-drag: none;
   width: 100%;
+}
+
+a {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 19px;
+  color: #3167ba;
+  text-decoration: none;
 }
