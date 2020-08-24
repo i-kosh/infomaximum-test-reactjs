@@ -1,0 +1,27 @@
+.nav-list-item {
+  padding-left: var(--header-padding-x);
+  display: flex;
+  align-items: center;
+}
+
+.nav-list-item__link {
+  color: inherit;
+  font-weight: bold;
+  font-size: 14px;
+  min-height: 60px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &--active {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+
+.nav-list-item__prepend {
+  width: 24px;
+  height: 24px;
+  margin-right: 12px;
+}
