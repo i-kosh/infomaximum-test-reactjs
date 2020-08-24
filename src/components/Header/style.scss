@@ -1,0 +1,13 @@
+.header {
+  background: #ffffff;
+  box-shadow: 0 4px 12px 0 rgba(104, 121, 187, 0.15);
+  height: var(--header-height);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding-left: var(--header-padding-x);
+  padding-right: var(--header-padding-x);
+  display: flex;
+  align-items: center;
+}
