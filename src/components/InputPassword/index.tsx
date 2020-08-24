@@ -25,13 +25,17 @@ export default class InputPassword extends Component<Props, State> {
       ? "Скрыть пароль"
       : "Показать пароль";
     const eyeComponent = (
-      <div onClick={this.appendClickHandler.bind(this)} className="append">
+      <button
+        type="button"
+        onClick={this.appendClickHandler.bind(this)}
+        className="append"
+      >
         <img
           src={this.state.isPassVisible ? eyeOpen : eyeCLose}
           alt={appendHint}
           title={appendHint}
         />
-      </div>
+      </button>
     );
 
     return (
