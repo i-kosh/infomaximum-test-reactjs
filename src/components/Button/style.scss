@@ -19,6 +19,7 @@
   transition-property: box-shadow, background-color, border-color;
   transition-timing-function: ease;
   transition-duration: 0.3s;
+  width: 100%;
 
   &:focus {
     background: #ffce0c;

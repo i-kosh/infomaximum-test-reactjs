@@ -12,6 +12,7 @@
   font-size: 14px;
   line-height: 19px;
   color: #6879bb;
+  width: 100%;
 
   &::placeholder {
     color: #cccccc;
@@ -58,4 +59,5 @@
 .input-wrap {
   display: inline-block;
   position: relative;
+  width: 100%;
 }
