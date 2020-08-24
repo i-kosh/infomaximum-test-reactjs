@@ -1,0 +1,35 @@
+.auth-layout {
+  background: linear-gradient(229.68deg, #6879bb 7.06%, #9300bb 95.23%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.auth-layout__header {
+  height: 112px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.auth-layout__h1 {
+  width: 0;
+  height: 0;
+  position: absolute;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.auth-layout__img {
+  width: 150px;
+}
+
+.auth-layout__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 424px;
+}
