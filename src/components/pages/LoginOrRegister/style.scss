@@ -1,0 +1,44 @@
+.login-register {
+  flex: 1;
+  background: #ffffff;
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 2px;
+}
+
+.login-register__heading {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
+.login-register__content {
+  padding-top: 36px;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+.login-register__error {
+  width: 100%;
+  min-height: 96px;
+  background-color: #ffe9db;
+  padding-left: 120px;
+  padding-right: 25px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 24px;
+  cursor: default;
+}
+
+.login-register__error-icon {
+  width: 48px;
+  height: 48px;
+  position: absolute;
+  left: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+}
