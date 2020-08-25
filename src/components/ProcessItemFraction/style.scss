@@ -1,0 +1,41 @@
+.process-fr {
+  position: relative;
+}
+
+.process-fr__sub {
+  color: var(--text-light-color);
+  font-size: 12px;
+  margin-top: 6px;
+  display: inline-block;
+}
+
+.process-fr__main {
+  color: #535374;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 1;
+}
+
+.process-fr__append {
+  width: 24px;
+  height: 18px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+}
+
+.process-fr--large {
+  .process-fr__main {
+    font-size: 26px;
+  }
+
+  .process-fr__append {
+    height: 26px;
+  }
+}
+
+.process-fr--append {
+  padding-left: 36px;
+}
