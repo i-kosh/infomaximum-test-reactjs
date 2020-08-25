@@ -16,7 +16,7 @@ const LoginOrRegister: FunctionComponent<Props> = (props) => {
       return (
         <div>
           <div style={{ marginBottom: "12px" }}>
-            <InputWE placeholder="Электронная почта" />
+            <InputWE type="email" placeholder="Электронная почта" />
           </div>
           <div style={{ marginBottom: "24px" }}>
             <InputPassword placeholder="Пароль" />
@@ -37,7 +37,7 @@ const LoginOrRegister: FunctionComponent<Props> = (props) => {
             <InputWE placeholder="Фамилиия" />
           </div>{" "}
           <div style={{ marginBottom: "12px" }}>
-            <InputWE placeholder="Электронная почта" />
+            <InputWE type="email" placeholder="Электронная почта" />
           </div>
           <div style={{ marginBottom: "12px" }}>
             <InputPassword placeholder="Введите пароль" />
