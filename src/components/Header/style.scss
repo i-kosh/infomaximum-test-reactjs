@@ -10,4 +10,5 @@
   padding-right: var(--header-padding-x);
   display: flex;
   align-items: center;
+  z-index: var(--z-fixed);
 }
