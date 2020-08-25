@@ -48,3 +48,21 @@ a {
   color: #3167ba;
   text-decoration: none;
 }
+
+::-webkit-scrollbar-track {
+  background-color: #afb9d7;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: #8b99c9;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #afb9d7;
+}
