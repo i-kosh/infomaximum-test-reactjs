@@ -68,7 +68,8 @@ const DefaultLayout: FunctionComponent = (props) => {
             <nav>
               <NavList>
                 <NavListItem
-                  to="/login"
+                  to="/profile"
+                  exact
                   prepend={
                     <div style={{ height: "100%", width: "100%" }}>
                       <img src={userIcon} alt="" />
@@ -78,6 +79,7 @@ const DefaultLayout: FunctionComponent = (props) => {
                   Username
                 </NavListItem>
                 <NavListItem
+                  exact
                   prepend={
                     <div style={{ height: "100%", width: "100%" }}>
                       <img src={dataIcon} alt="" />
