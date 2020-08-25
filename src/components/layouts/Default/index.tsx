@@ -1,4 +1,5 @@
-import React, { FunctionComponent, useState } from "react";
+import React, { FunctionComponent, useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import classNames from "classnames";
 import AppHeader from "../../Header";
 import MenuBtn from "../../MenuButton";
@@ -10,17 +11,19 @@ import procesetText from "./proceset.svg";
 import userIcon from "./man.svg";
 import dataIcon from "./cheez.svg";
 
-interface State {
-  isModalOpened: boolean;
-}
-
 const DefaultLayout: FunctionComponent = (props) => {
-  const [state, setState] = useState<State>({ isModalOpened: false });
+  const [isModalOpened, setIsModalOpened] = useState(false);
+
+  // Закрывает меню при смене пути
+  const location = useLocation();
+  useEffect(() => {
+    setIsModalOpened(false);
+  }, [location.pathname]);
 
   const toggleMenu = () => {
-    const isModalOpened = !state.isModalOpened;
+    const isOpened = !isModalOpened;
     const document = window.document.body;
-    setState({ isModalOpened });
+    setIsModalOpened(isOpened);
 
     if (isModalOpened) {
       document.style.overflow = "hidden";
@@ -39,12 +42,12 @@ const DefaultLayout: FunctionComponent = (props) => {
 
   const backdropClasses = classNames({
     "modal-backdrop": true,
-    "modal-backdrop--hidden": !state.isModalOpened,
+    "modal-backdrop--hidden": !isModalOpened,
   });
 
   const menuClasses = classNames({
     "default-layout__menu": true,
-    "default-layout__menu--hidden": !state.isModalOpened,
+    "default-layout__menu--hidden": !isModalOpened,
   });
 
   const AppMenuTop = (
