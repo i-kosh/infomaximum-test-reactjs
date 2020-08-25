@@ -1,5 +1,4 @@
 import React, { FunctionComponent } from "react";
-import AuthLayout from "../../layouts/AuthLayout";
 import InputWE from "../../InputErrorMessage";
 import InputPassword from "../../InputPassword";
 import Button from "../../Button";
@@ -61,20 +60,18 @@ const LoginOrRegister: FunctionComponent<Props> = (props) => {
   };
 
   return (
-    <AuthLayout>
-      <section className="login-register">
-        <h2 className="login-register__heading">test</h2>
-        <div className="login-register__content">
-          <Content />
+    <section className="login-register">
+      <h2 className="login-register__heading">test</h2>
+      <div className="login-register__content">
+        <Content />
+      </div>
+      <div className="login-register__error">
+        <div className="login-register__error-icon">
+          <img width="48" height="48" src={errLogo} alt="Внимание" />
         </div>
-        <div className="login-register__error">
-          <div className="login-register__error-icon">
-            <img width="48" height="48" src={errLogo} alt="Внимание" />
-          </div>
-          <p>Сообщение об ошибке</p>
-        </div>
-      </section>
-    </AuthLayout>
+        <p>Сообщение об ошибке</p>
+      </div>
+    </section>
   );
 };
 

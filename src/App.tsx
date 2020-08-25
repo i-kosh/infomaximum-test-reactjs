@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import DefaultLayout from "./components/layouts/Default";
+import AuthLayout from "./components/layouts/AuthLayout";
+
 // Pages
 import LoginOrRegister from "./components/pages/LoginOrRegister";
 import ProcessList from "./components/pages/ProcessList";
@@ -12,16 +15,24 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/login">
-            <LoginOrRegister isLogin={true} />
+            <AuthLayout>
+              <LoginOrRegister isLogin={true} />
+            </AuthLayout>
           </Route>
           <Route exact path="/register">
-            <LoginOrRegister isLogin={false} />
+            <AuthLayout>
+              <LoginOrRegister isLogin={false} />
+            </AuthLayout>
           </Route>
           <Route exact path="/profile">
-            <Profile />
+            <DefaultLayout>
+              <Profile />
+            </DefaultLayout>
           </Route>
           <Route exact path="/">
-            <ProcessList />
+            <DefaultLayout>
+              <ProcessList />
+            </DefaultLayout>
           </Route>
         </Switch>
       </div>
