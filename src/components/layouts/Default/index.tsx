@@ -18,6 +18,8 @@ const DefaultLayout: FunctionComponent = (props) => {
   const location = useLocation();
   useEffect(() => {
     setIsModalOpened(false);
+    const document = window.document.body;
+    document.style.overflow = "";
   }, [location.pathname]);
 
   const toggleMenu = () => {
@@ -25,7 +27,7 @@ const DefaultLayout: FunctionComponent = (props) => {
     const document = window.document.body;
     setIsModalOpened(isOpened);
 
-    if (isModalOpened) {
+    if (isOpened) {
       document.style.overflow = "hidden";
     } else {
       document.style.overflow = "";
