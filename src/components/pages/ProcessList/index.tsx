@@ -3,7 +3,7 @@ import Layout from "../../layouts/Default";
 
 interface Props {}
 
-const LoginOrRegister: FunctionComponent<Props> = (props) => {
+const ProcessList: FunctionComponent<Props> = (props) => {
   return (
     <Layout>
       <section className="process-list">
@@ -14,4 +14,4 @@ const LoginOrRegister: FunctionComponent<Props> = (props) => {
   );
 };
 
-export default LoginOrRegister;
+export default ProcessList;
