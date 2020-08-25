@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 // Pages
 import LoginOrRegister from "./components/pages/LoginOrRegister";
 import ProcessList from "./components/pages/ProcessList";
+import Profile from "./components/pages/Profile";
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           </Route>
           <Route exact path="/register">
             <LoginOrRegister isLogin={false} />
+          </Route>
+          <Route exact path="/profile">
+            <Profile />
           </Route>
           <Route exact path="/">
             <ProcessList />
