@@ -1,14 +1,14 @@
 import React, { FunctionComponent } from "react";
 import "./style.scss";
 
-export interface Props {
-  disabled?: boolean;
-}
+export interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
 
 const Button: FunctionComponent<Props> = (props) => {
+  const { children, ...restProps } = props;
+
   return (
-    <button disabled={props.disabled} className="button">
-      {props.children}
+    <button {...restProps} className="button">
+      {children}
     </button>
   );
 };
