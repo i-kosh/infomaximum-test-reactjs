@@ -1,0 +1,22 @@
+.loading-screen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 1000;
+  background-color: #fff;
+
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-property: opacity;
+
+  font-size: 60px;
+  font-weight: bold;
+
+  &--hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
