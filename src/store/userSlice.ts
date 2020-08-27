@@ -72,6 +72,7 @@ export const {
   resetErrors,
   toggleIsLogged,
   logOut,
+  toggleProfileChangesSaved,
 } = userSlice.actions;
 
 export const loginAsync = (authData: {

@@ -1,20 +1,41 @@
 import React, { FunctionComponent } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectUser, logOut, editUserAsync } from "../../../store/userSlice";
+import {
+  selectUser,
+  logOut,
+  editUserAsync,
+  // toggleProfileChangesSaved,
+} from "../../../store/userSlice";
 import Button from "../../Button";
 import ProfileForm, { FormData as ProfileFormData } from "../../ProfileEdit";
 import "./style.scss";
-import { isDirty, isInvalid } from "redux-form";
+import { isInvalid, getFormValues } from "redux-form";
 
-interface Props {}
-
-const Profile: FunctionComponent<Props> = (props) => {
+const Profile: FunctionComponent = () => {
   const dispatch = useDispatch();
-  const isFormDirty = useSelector(isDirty("profileEdit"));
-  const isFormIvalid = useSelector(isInvalid("profileEdit"));
-  const submitButtonDisabled = !isFormDirty || isFormIvalid;
+
   const user = useSelector(selectUser);
   const userProfile = user.profile;
+
+  const isFormIvalid = useSelector(isInvalid("profileEdit"));
+  const formValues: Partial<ProfileFormData> = useSelector(
+    getFormValues("profileEdit")
+  );
+
+  const isFormDirty = () => {
+    const { email, firstName, secondName } = user.profile!;
+    const currentProfile = JSON.stringify({
+      email,
+      firstName,
+      secondName,
+    });
+    const currentFormData = JSON.stringify(formValues);
+
+    return currentProfile !== currentFormData;
+  };
+
+  const submitButtonDisabled = !isFormDirty() || isFormIvalid;
+
   const formInitialValues: Partial<ProfileFormData> = {
     email: userProfile?.email,
     firstName: userProfile?.firstName,
