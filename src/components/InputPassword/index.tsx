@@ -4,7 +4,7 @@ import InputWE, { Props as InputWEProps } from "../InputErrorMessage";
 import eyeCLose from "./eye-close.svg";
 import eyeOpen from "./eye-open.svg";
 
-interface Props extends InputWEProps {}
+export interface Props extends InputWEProps {}
 interface State {
   isPassVisible: boolean;
 }
