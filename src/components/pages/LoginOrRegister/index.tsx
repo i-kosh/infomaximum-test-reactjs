@@ -32,8 +32,8 @@ const LoginOrRegister: FunctionComponent<Props> = (props) => {
             onSubmit={(val) => {
               dispatch(
                 loginAsync({
-                  email: val.email,
-                  password: val.password,
+                  email: val.email!,
+                  password: val.password!,
                 })
               );
             }}

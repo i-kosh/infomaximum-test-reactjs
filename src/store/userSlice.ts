@@ -72,8 +72,8 @@ export const {
 } = userSlice.actions;
 
 export const loginAsync = (authData: {
-  email?: string;
-  password?: string;
+  email: string;
+  password: string;
 }): AppThunk => async (dispatch) => {
   dispatch(userSlice.actions.toggleLoading(true));
   dispatch(userSlice.actions.setErrors(undefined));
