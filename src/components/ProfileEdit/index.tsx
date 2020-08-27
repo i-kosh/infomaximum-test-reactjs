@@ -22,19 +22,29 @@ const ProfileEdit: FunctionComponent = (props) => {
         <label className="profile-edit__label">
           <span className="profile-edit__label-text">Электронная почта</span>
           <div className="profile-edit__input">
-            <InputWE type="email" placeholder="Не задано" />
+            <InputWE
+              autoComplete="username"
+              type="email"
+              placeholder="Не задано"
+            />
           </div>
         </label>
         <label className="profile-edit__label">
           <span className="profile-edit__label-text">Новый пароль</span>
           <div className="profile-edit__input">
-            <InputPassword placeholder="Не задано" />
+            <InputPassword
+              autoComplete="new-password"
+              placeholder="Не задано"
+            />
           </div>
         </label>
         <label className="profile-edit__label">
           <span className="profile-edit__label-text">Повторите пароль</span>
           <div className="profile-edit__input">
-            <InputPassword placeholder="Не задано" />
+            <InputPassword
+              autoComplete="new-password"
+              placeholder="Не задано"
+            />
           </div>
         </label>
       </form>
