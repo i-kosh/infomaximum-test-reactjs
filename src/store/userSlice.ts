@@ -10,6 +10,7 @@ interface UserState {
   errors?: string[];
   loading: boolean;
   token: string | null;
+  profileChangesSaved?: boolean;
   profile?: {
     id: number;
     firstName: string;
@@ -59,6 +60,9 @@ export const userSlice = createSlice({
       state.isLogged = false;
       state.token = null;
       localStorage.removeItem(LocalStorageKeys.JWT_TOKEN);
+    },
+    toggleProfileChangesSaved: (state, action: PayloadAction<boolean>) => {
+      state.profileChangesSaved = action.payload;
     },
   },
 });
@@ -152,6 +156,65 @@ export const registerAsync = (authData: {
   try {
     const response = await gqlClient.request<LoginResponse>(query);
     dispatch(userSlice.actions.setToken(response.signup));
+  } catch (error) {
+    dispatch(userSlice.actions.setErrors(gqlErrorHandler(error)));
+  }
+
+  dispatch(userSlice.actions.toggleLoading(false));
+};
+
+export const editUserAsync = (authData: {
+  firstName: string;
+  secondName: string;
+  email: string;
+  password?: string;
+}): AppThunk => async (dispatch) => {
+  dispatch(userSlice.actions.toggleLoading(true));
+  dispatch(userSlice.actions.setErrors(undefined));
+  dispatch(userSlice.actions.toggleProfileChangesSaved(false));
+
+  interface LoginResponse {
+    editUser: {
+      id: number;
+      firstName: string;
+      secondName: string;
+      email: string;
+    };
+  }
+
+  const query = gql`
+    mutation {
+      editUser(
+        id: ${store.getState().loggedUser.profile!.id}
+        firstName: "${authData.firstName}"
+        secondName: "${authData.secondName}"
+        email: "${authData.email}"
+        password: "${authData.password ? `${authData.password}` : null}"
+      ) {
+          id
+          firstName
+          secondName
+          email
+        }
+    }
+  `;
+
+  try {
+    const token = store.getState().loggedUser.token;
+    gqlClient.setHeader("authorization", `Bearer ${token}`);
+    const response = await gqlClient.request<LoginResponse>(query);
+
+    dispatch(
+      userSlice.actions.setUserProfile({
+        profile: {
+          email: response.editUser.email,
+          firstName: response.editUser.firstName,
+          secondName: response.editUser.secondName,
+          id: response.editUser.id,
+        },
+      })
+    );
+    dispatch(userSlice.actions.toggleProfileChangesSaved(true));
   } catch (error) {
     dispatch(userSlice.actions.setErrors(gqlErrorHandler(error)));
   }
