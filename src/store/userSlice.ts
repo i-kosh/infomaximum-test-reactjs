@@ -47,7 +47,6 @@ export const userSlice = createSlice({
       state.errors = undefined;
     },
     setToken: (state, action: PayloadAction<UserState["token"]>) => {
-      state.isLogged = true;
       state.token = action.payload;
 
       if (action.payload) {
@@ -117,6 +116,7 @@ export const loginAsync = (authData: {
         },
       })
     );
+    dispatch(userSlice.actions.toggleIsLogged(true));
     dispatch(userSlice.actions.setToken(response.login.token));
   } catch (error) {
     dispatch(userSlice.actions.setErrors(gqlErrorHandler(error)));
