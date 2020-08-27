@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from "react";
+import React, { FunctionComponent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectUser,
@@ -36,6 +36,20 @@ const Profile: FunctionComponent = () => {
 
   const submitButtonDisabled = !isFormDirty() || isFormIvalid;
 
+  const [submitButtonText, setSubmitButtonText] = useState("Сохранить");
+  useEffect(() => {
+    if (user.profileChangesSaved) {
+      setSubmitButtonText("Сохранено");
+      const id = setTimeout(() => {
+        setSubmitButtonText("Сохранить");
+      }, 3000);
+
+      return () => {
+        clearTimeout(id);
+      };
+    }
+  }, [user.profileChangesSaved]);
+
   const formInitialValues: Partial<ProfileFormData> = {
     email: userProfile?.email,
     firstName: userProfile?.firstName,
@@ -62,7 +76,7 @@ const Profile: FunctionComponent = () => {
             form="profileEditForm"
             type="submit"
           >
-            Сохранить
+            {submitButtonText}
           </Button>
         </div>
       </div>
