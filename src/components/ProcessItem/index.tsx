@@ -33,7 +33,7 @@ const ProcessItem: FunctionComponent = (props) => {
     <article className="process-item">
       <header className="process-item__header">
         <h2 className="process-item__heading">Рассмотрение кредитной заявки</h2>
-        <button type="button" className="process-item__btn">
+        <button disabled type="button" className="process-item__btn">
           <span>На карту процесса</span>
           <span className="process-item__btn-icon">
             <img src={arrow} alt="" />
