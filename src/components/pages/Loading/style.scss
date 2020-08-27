@@ -12,11 +12,18 @@
   transition-timing-function: ease;
   transition-property: opacity;
 
-  font-size: 60px;
+  font-size: 30vh;
+  line-height: 30vh;
   font-weight: bold;
+
+  color: #6879bb;
 
   &--hidden {
     opacity: 0;
     pointer-events: none;
   }
+}
+
+.loading-screen__dots {
+  transform: translateY(-15vh);
 }

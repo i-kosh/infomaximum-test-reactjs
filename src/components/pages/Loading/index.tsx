@@ -12,7 +12,11 @@ const Profile: FunctionComponent<Props> = (props) => {
     "loading-screen--hidden": props.hidden,
   });
 
-  return <section className={rootClasses}>...</section>;
+  return (
+    <section className={rootClasses}>
+      <span className="loading-screen__dots">...</span>
+    </section>
+  );
 };
 
 export default Profile;
