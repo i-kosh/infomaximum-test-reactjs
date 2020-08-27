@@ -10,8 +10,12 @@ import "./style.scss";
 import procesetText from "./proceset.svg";
 import userIcon from "./man.svg";
 import dataIcon from "./cheez.svg";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../../store/userSlice";
 
 const DefaultLayout: FunctionComponent = (props) => {
+  const user = useSelector(selectUser);
+  const userProfile = user.profile;
   const [isModalOpened, setIsModalOpened] = useState(false);
 
   // Закрывает меню при смене пути
@@ -81,7 +85,7 @@ const DefaultLayout: FunctionComponent = (props) => {
                     </div>
                   }
                 >
-                  Username
+                  {userProfile ? userProfile.firstName : "Пользователь"}
                 </NavListItem>
                 <NavListItem
                   exact
