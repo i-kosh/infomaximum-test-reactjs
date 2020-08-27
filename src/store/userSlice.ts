@@ -125,6 +125,40 @@ export const loginAsync = (authData: {
   dispatch(userSlice.actions.toggleLoading(false));
 };
 
+export const registerAsync = (authData: {
+  firstName: string;
+  secondName: string;
+  email: string;
+  password: string;
+}): AppThunk => async (dispatch) => {
+  dispatch(userSlice.actions.toggleLoading(true));
+  dispatch(userSlice.actions.setErrors(undefined));
+
+  interface LoginResponse {
+    signup: string;
+  }
+
+  const query = gql`
+    mutation {
+      signup(
+        firstName: "${authData.firstName}"
+        secondName: "${authData.secondName}"
+        email: "${authData.email}"
+        password: "${authData.password}"
+      )
+    }
+  `;
+
+  try {
+    const response = await gqlClient.request<LoginResponse>(query);
+    dispatch(userSlice.actions.setToken(response.signup));
+  } catch (error) {
+    dispatch(userSlice.actions.setErrors(gqlErrorHandler(error)));
+  }
+
+  dispatch(userSlice.actions.toggleLoading(false));
+};
+
 export const setCurrentUserProfileAsync = (): AppThunk => async (dispatch) => {
   dispatch(userSlice.actions.toggleLoading(true));
 

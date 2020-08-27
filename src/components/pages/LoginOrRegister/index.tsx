@@ -5,7 +5,12 @@ import "./style.scss";
 import LoginForm from "../../LoginForm";
 import RegForm from "../../RegForm";
 import { useSelector, useDispatch } from "react-redux";
-import { loginAsync, selectUser, resetErrors } from "../../../store/userSlice";
+import {
+  loginAsync,
+  selectUser,
+  resetErrors,
+  registerAsync,
+} from "../../../store/userSlice";
 
 interface Props {
   isLogin: boolean;
@@ -46,7 +51,14 @@ const LoginOrRegister: FunctionComponent<Props> = (props) => {
         <div>
           <RegForm
             onSubmit={(val) => {
-              console.log(val);
+              dispatch(
+                registerAsync({
+                  email: val.email!,
+                  password: val.password!,
+                  firstName: val.firstName!,
+                  secondName: val.secondName!,
+                })
+              );
             }}
           />
           <div>
