@@ -183,6 +183,7 @@ export const editUserAsync = (authData: {
     };
   }
 
+  const password = authData.password ? `"${authData.password}"` : null;
   const query = gql`
     mutation {
       editUser(
@@ -190,7 +191,7 @@ export const editUserAsync = (authData: {
         firstName: "${authData.firstName}"
         secondName: "${authData.secondName}"
         email: "${authData.email}"
-        password: "${authData.password ? `${authData.password}` : null}"
+        password: ${password}
       ) {
           id
           firstName
